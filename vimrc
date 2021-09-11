@@ -9,6 +9,33 @@ set encoding=utf-8
 
 let mapleader = "\<Space>" " Use leader key for space
 
+" Install Plug
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+    silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+" Install plugins
+call plug#begin('~/.vim/plugged')
+
+Plug 'https://github.com/preservim/nerdtree'
+Plug 'https://github.com/sickill/vim-monokai'
+Plug 'https://github.com/tpope/vim-surround'
+Plug 'https://github.com/vim-airline/vim-airline'
+Plug 'https://github.com/tpope/vim-fugitive'
+Plug 'https://github.com/tpope/vim-commentary'
+Plug 'https://github.com/psf/black'
+Plug 'https://github.com/airblade/vim-gitgutter'
+Plug 'https://github.com/hashivim/vim-terraform'
+Plug 'https://github.com/easymotion/vim-easymotion'
+Plug 'https://github.com/Shougo/neosnippet.vim'
+Plug 'https://github.com/junegunn/fzf'
+Plug 'https://github.com/junegunn/fzf.vim'
+Plug 'https://github.com/b4winckler/vim-angry'
+
+call plug#end()
+
 filetype plugin indent on  " Load plugins according to detected filetype.
 
 " Synax on with monokai color scheme (requires https://github.com/sickill/vim-monokai)
@@ -117,16 +144,3 @@ nnoremap <Leader>r :History<CR>
 nnoremap <Leader>b :Buffers<CR>
 
 
-    - { url: 'https://github.com/preservim/nerdtree/archive/refs/heads/master.zip' }
-    - { url: 'https://github.com/tpope/vim-surround/archive/refs/heads/master.zip' }
-    - { url: 'https://github.com/vim-airline/vim-airline/archive/refs/heads/master.zip' }
-    - { url: 'https://github.com/tpope/vim-fugitive/archive/refs/heads/master.zip' }
-    - { url: 'https://github.com/tpope/vim-commentary/archive/refs/heads/master.zip' }
-    - { url: 'https://github.com/psf/black/archive/refs/heads/main.zip' }
-    - { url: 'https://github.com/airblade/vim-gitgutter/archive/refs/heads/master.zip' }
-    - { url: 'https://github.com/hashivim/vim-terraform/archive/refs/heads/master.zip' }
-    - { url: 'https://github.com/easymotion/vim-easymotion/archive/refs/heads/master.zip' }
-    - { url: 'https://github.com/Shougo/neosnippet.vim/archive/refs/heads/master.zip' }
-    - { url: 'https://github.com/junegunn/fzf/archive/refs/heads/master.zip' }
-    - { url: 'https://github.com/junegunn/fzf.vim/archive/refs/heads/master.zip' }
-    - { url: 'https://github.com/b4winckler/vim-angry/archive/refs/heads/master.zip' }

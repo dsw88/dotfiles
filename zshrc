@@ -1,3 +1,6 @@
+# Turn on vim mode
+bindkey -v
+
 #
 # Prompt Configuration
 #
@@ -37,6 +40,42 @@ fd() {
 # fh - repeat history
 fh() {
   eval $( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s --tac | sed -E 's/ *[0-9]*\*? *//' | sed -E 's/\\/\\\\/g')
+}
+
+# checkout git branch (including remote branches)
+gco() {
+  local branches branch
+  branches=$(git branch --all | grep -v HEAD) &&
+  branch=$(echo "$branches" |
+           fzf -d $(( 2 + $(wc -l <<< "$branches") )) +m) &&
+  git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
+}
+
+# gcoc - checkout git commit
+gcoc() {
+  local commits commit
+  commits=$(git log --pretty=oneline --abbrev-commit --reverse) &&
+  commit=$(echo "$commits" | fzf --tac +s +m -e) &&
+  git checkout $(echo "$commit" | sed "s/ .*//")
+}
+
+# gdb - delete git commit
+gbd() {
+  local branch
+  branch=$(git branch | fzf)
+  git branch -d $(echo "$branch" | sed "s/ *//")
+}
+
+# gs - git commit browser
+gs() {
+  git log --graph --color=always \
+      --format="%C(auto)%h%d %s %C(black)%C(bold)%cr" "$@" |
+  fzf --ansi --no-sort --reverse --tiebreak=index --bind=ctrl-s:toggle-sort \
+      --bind "ctrl-m:execute:
+                (grep -o '[a-f0-9]\{7\}' | head -1 |
+                xargs -I % sh -c 'git show --color=always % | less -R') << 'FZF-EOF'
+                {}
+FZF-EOF"
 }
 
 #
@@ -86,7 +125,6 @@ bindkey '^g' _call_navi
 #
 alias gst="git status"
 alias gc="git commit"
-alias gco="git checkout"
 alias gnb="git checkout -b"
 alias ggpush="git push origin HEAD"
 alias ggpull="git pull origin HEAD"

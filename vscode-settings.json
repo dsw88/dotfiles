@@ -1,0 +1,131 @@
+{
+  "workbench.editorAssociations": {
+    "*.ipynb": "jupyter-notebook"
+  },
+  "workbench.iconTheme": "vscode-icons",
+  "gitlens.hovers.enabled": false,
+  "editor.fontFamily": "FiraCode Nerd Font, Monaco, 'Courier New', monospace",
+  "editor.formatOnSave": true,
+  "vim.statusBarColorControl": true,
+  "editor.minimap.enabled": false,
+  "jupyter.jupyterServerType": "local",
+  "todohighlight.isEnable": false,
+  "telemetry.telemetryLevel": "off",
+  "extensions.autoUpdate": false,
+  "jupyter.experiments.enabled": false,
+  "workbench.colorCustomizations": {
+    "statusBar.background": "#5f00af",
+    "statusBar.noFolderBackground": "#5f00af",
+    "statusBar.debuggingBackground": "#5f00af"
+  },
+  "editor.accessibilitySupport": "off",
+  "jupyter.askForKernelRestart": false,
+  "terminal.integrated.inheritEnv": false,
+  "telemetry.enableCrashReporter": false,
+  "python.formatting.provider": "black",
+  "vim.leader": "<space>",
+  "remote.downloadExtensionsLocally": true,
+  "vim.easymotion": true,
+  "remote.SSH.localServerDownload": "always",
+  "telemetry.enableTelemetry": false,
+  "terminal.integrated.shell.osx": "\/bin\/zsh",
+  "gitlens.hovers.currentLine.over": "line",
+  "extensions.autoCheckUpdates": false,
+  "terminal.integrated.fontFamily": "FiraCode Nerd Font",
+  "editor.fontLigatures": true,
+  "python.experiments.enabled": false,
+  "vim.normalModeKeyBindings": [
+    {
+      "before": [
+        "<leader>",
+        "j"
+      ],
+      "commands": [
+        "workbench.action.focusBelowGroup"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "k"
+      ],
+      "commands": [
+        "workbench.action.focusAboveGroup"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "h"
+      ],
+      "commands": [
+        "workbench.action.focusLeftGroup"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "l"
+      ],
+      "commands": [
+        "workbench.action.focusRightGroup"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "t"
+      ],
+      "commands": [
+        "workbench.action.toggleSidebarVisibility"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "p"
+      ],
+      "commands": [
+        "workbench.action.showCommands"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "o"
+      ],
+      "commands": [
+        "workbench.action.quickOpen"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "m"
+      ],
+      "commands": [
+        "bookmarks.toggle"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "b"
+      ],
+      "commands": [
+        "bookmarks.listFromAllFiles"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "s"
+      ],
+      "after": [
+        "<leader>",
+        "<leader>",
+        "s"
+      ]
+    }
+  ]
+}

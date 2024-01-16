@@ -1,8 +1,4 @@
-"
-" My vimrc file
-"
-
-" We want vim, not vi
+" Vim, not vi
 set nocompatible
 
 set encoding=utf-8
@@ -23,13 +19,8 @@ Plug 'https://github.com/preservim/nerdtree'
 Plug 'https://github.com/sickill/vim-monokai'
 Plug 'https://github.com/tpope/vim-surround'
 Plug 'https://github.com/vim-airline/vim-airline'
-Plug 'https://github.com/tpope/vim-fugitive'
 Plug 'https://github.com/tpope/vim-commentary'
-Plug 'https://github.com/psf/black'
-Plug 'https://github.com/airblade/vim-gitgutter'
-Plug 'https://github.com/hashivim/vim-terraform'
 Plug 'https://github.com/easymotion/vim-easymotion'
-Plug 'https://github.com/Shougo/neosnippet.vim'
 Plug 'https://github.com/junegunn/fzf'
 Plug 'https://github.com/junegunn/fzf.vim'
 Plug 'https://github.com/b4winckler/vim-angry'
@@ -90,9 +81,6 @@ nnoremap <Leader>t :NERDTreeToggle<CR>
 " Configure longer command history
 set history=200
 
-" Black on save
-autocmd BufWritePre *.py execute ':Black'
-
 " Show non-printable characters.
 set list
 if has('multi_byte') && &encoding ==# 'utf-8'
@@ -116,23 +104,6 @@ let g:EasyMotion_smartcase = 1
 " JK motions: Line motions
 map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
-
-"
-" Neosnippet.vim Config
-"
-let g:neosnippet#disable_runtime_snippets = {'_' : 1}
-let g:neosnippet#snippets_directory = "~/.vim/neosnippets.vim/snippets"
-
-" Plugin key-mappings.
-" Note: It must be "imap" and "smap".  It uses <Plug> mappings.
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-k>     <Plug>(neosnippet_expand_target)
-
-" For conceal markers.
-if has('conceal')
-  set conceallevel=2 concealcursor=niv
-endif
 
 "
 " FZF config
